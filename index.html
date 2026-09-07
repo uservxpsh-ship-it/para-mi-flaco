@@ -1,1 +1,983 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Para mi flaco ♡</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap');
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 20% 20%, rgba(170, 87, 190, 0.20), transparent 30%),
+        radial-gradient(circle at 80% 10%, rgba(255, 120, 180, 0.13), transparent 25%),
+        linear-gradient(135deg, #090414, #160824 45%, #0c0616);
+      color: #fff7ff;
+      font-family: 'Cormorant Garamond', serif;
+      overflow-x: hidden;
+      line-height: 1.8;
+    }
+
+    /* ESTRELLITAS */
+
+    body::before {
+      content: "✦  ˚  ✧  ⋆  ✦  ˚  ✧  ⋆  ✦  ˚  ✧  ⋆";
+      position: fixed;
+      top: 5%;
+      left: 0;
+      width: 100%;
+      color: rgba(255,255,255,0.45);
+      font-size: 18px;
+      letter-spacing: 25px;
+      pointer-events: none;
+      z-index: 0;
+      animation: brillo 4s infinite alternate;
+    }
+
+    @keyframes brillo {
+      from {
+        opacity: 0.25;
+      }
+      to {
+        opacity: 0.75;
+      }
+    }
+
+    /* CORAZONES FLOTANDO */
+
+    .heart {
+      position: fixed;
+      bottom: -30px;
+      color: #ffb7df;
+      font-size: 20px;
+      opacity: 0.5;
+      animation: subir 10s linear infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .heart:nth-child(1) {
+      left: 8%;
+      animation-delay: 0s;
+    }
+
+    .heart:nth-child(2) {
+      left: 25%;
+      animation-delay: 3s;
+      font-size: 14px;
+    }
+
+    .heart:nth-child(3) {
+      left: 48%;
+      animation-delay: 6s;
+      font-size: 18px;
+    }
+
+    .heart:nth-child(4) {
+      left: 72%;
+      animation-delay: 2s;
+      font-size: 15px;
+    }
+
+    .heart:nth-child(5) {
+      left: 90%;
+      animation-delay: 5s;
+    }
+
+    @keyframes subir {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+      15% {
+        opacity: 0.6;
+      }
+      100% {
+        transform: translateY(-110vh) rotate(30deg);
+        opacity: 0;
+      }
+    }
+
+    /* PORTADA */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .moon {
+      position: absolute;
+      top: 70px;
+      right: 12%;
+      width: 85px;
+      height: 85px;
+      border-radius: 50%;
+      background: #fff4ff;
+      box-shadow:
+        0 0 25px rgba(255, 210, 250, 0.8),
+        0 0 60px rgba(190, 100, 220, 0.3);
+    }
+
+    .moon::after {
+      content: "";
+      position: absolute;
+      top: -8px;
+      left: 20px;
+      width: 85px;
+      height: 85px;
+      border-radius: 50%;
+      background: #10051b;
+    }
+
+    .hero-content {
+      max-width: 850px;
+      animation: aparecer 2s ease;
+    }
+
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .small-title {
+      font-size: 1.1rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #d9b9e9;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(4rem, 13vw, 8rem);
+      color: #fff1fc;
+      text-shadow:
+        0 0 15px rgba(255, 180, 230, 0.4),
+        0 0 40px rgba(190, 90, 220, 0.25);
+      margin-bottom: 15px;
+    }
+
+    .hero-subtitle {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(1.6rem, 5vw, 2.6rem);
+      color: #f5cce9;
+      margin-bottom: 25px;
+    }
+
+    .hero-text {
+      max-width: 650px;
+      margin: auto;
+      font-size: 1.25rem;
+      color: #eadced;
+    }
+
+    .scroll {
+      margin-top: 45px;
+      font-size: 0.9rem;
+      letter-spacing: 3px;
+      color: #bca8c8;
+      animation: flotar 2s infinite ease-in-out;
+    }
+
+    @keyframes flotar {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(8px);
+      }
+    }
+
+    /* SECCIONES */
+
+    section {
+      position: relative;
+      z-index: 2;
+      padding: 100px 20px;
+      max-width: 950px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(2.8rem, 8vw, 4.5rem);
+      color: #f9d9ef;
+      margin-bottom: 35px;
+    }
+
+    .section-title span {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: #aa91b7;
+      margin-bottom: 5px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.045);
+      border: 1px solid rgba(255, 210, 250, 0.13);
+      border-radius: 28px;
+      padding: 40px;
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(8px);
+      margin-bottom: 30px;
+    }
+
+    .card p {
+      font-size: 1.25rem;
+      color: #eee1ef;
+    }
+
+    .highlight {
+      color: #ffc8e9;
+      font-weight: 600;
+    }
+
+    /* COSAS QUE AMO */
+
+    .love-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .love-item {
+      padding: 28px 20px;
+      text-align: center;
+      border-radius: 22px;
+      background: rgba(255, 191, 229, 0.055);
+      border: 1px solid rgba(255, 191, 229, 0.11);
+      transition: 0.3s ease;
+    }
+
+    .love-item:hover {
+      transform: translateY(-7px);
+      background: rgba(255, 191, 229, 0.09);
+      box-shadow: 0 12px 30px rgba(180, 80, 180, 0.15);
+    }
+
+    .love-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .love-item p {
+      font-size: 1.2rem;
+    }
+
+    /* FRASES GRANDES */
+
+    .quote {
+      text-align: center;
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      color: #ffd9f0;
+      padding: 50px 20px;
+    }
+
+    /* LLUVIA */
+
+    .rain-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .rain-card::before {
+      content: "⋆ ˚｡⋆୨୧˚ ⋆｡˚ ⋆";
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      color: rgba(255,255,255,0.18);
+      font-size: 25px;
+    }
+
+    /* MÚSICA */
+
+    .music-box {
+      text-align: center;
+    }
+
+    .music-box p {
+      margin-bottom: 25px;
+    }
+
+    .spotify-player {
+      border-radius: 15px;
+      overflow: hidden;
+      margin: 25px auto;
+      max-width: 700px;
+    }
+
+    .spotify-button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 13px 24px;
+      border-radius: 30px;
+      background: linear-gradient(135deg, #d79ac7, #9562a8);
+      color: white;
+      text-decoration: none;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      transition: 0.3s ease;
+      box-shadow: 0 8px 25px rgba(180, 90, 180, 0.25);
+    }
+
+    .spotify-button:hover {
+      transform: scale(1.05);
+    }
+
+    .music-note {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2rem;
+      color: #f4cce7;
+    }
+
+    /* DIOS */
+
+    .god-card {
+      text-align: center;
+      border-color: rgba(244, 214, 255, 0.16);
+    }
+
+    .cross {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    /* CARTA */
+
+    .letter {
+      background:
+        linear-gradient(
+          rgba(255, 242, 250, 0.055),
+          rgba(255, 242, 250, 0.035)
+        );
+      border: 1px solid rgba(255, 215, 239, 0.18);
+    }
+
+    .letter p {
+      margin-bottom: 22px;
+    }
+
+    .signature {
+      text-align: right;
+      font-family: 'Dancing Script', cursive;
+      font-size: 2rem;
+      color: #f8cfe9;
+      margin-top: 35px;
+    }
+
+    /* FELIZ OTRO MES */
+
+    .month {
+      text-align: center;
+      padding: 90px 20px;
+    }
+
+    .month-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(3rem, 10vw, 5.5rem);
+      color: #ffd9ef;
+      margin-bottom: 20px;
+    }
+
+    .month p {
+      font-size: 1.35rem;
+      max-width: 650px;
+      margin: auto;
+    }
+
+    /* BOTÓN SECRETO */
+
+    .secret-area {
+      text-align: center;
+      padding-top: 70px;
+    }
+
+    .secret-button {
+      border: 1px solid rgba(255, 200, 235, 0.25);
+      background: rgba(255, 255, 255, 0.055);
+      color: #ffe5f5;
+      padding: 15px 30px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      transition: 0.3s ease;
+    }
+
+    .secret-button:hover {
+      background: rgba(255, 190, 225, 0.1);
+      transform: scale(1.04);
+    }
+
+    .secret-message {
+      display: none;
+      max-width: 650px;
+      margin: 30px auto 0;
+      padding: 30px;
+      border-radius: 25px;
+      background: rgba(255, 192, 230, 0.07);
+      border: 1px solid rgba(255, 200, 235, 0.15);
+      animation: aparecer 0.8s ease;
+    }
+
+    .secret-message.show {
+      display: block;
+    }
+
+    .secret-message p {
+      font-size: 1.3rem;
+      color: #f6dfef;
+    }
+
+    /* FINAL */
+
+    .final {
+      text-align: center;
+      padding: 120px 20px 80px;
+    }
+
+    .names {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(3.5rem, 10vw, 6rem);
+      color: #fff0fa;
+      margin-bottom: 10px;
+    }
+
+    .forever {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.8rem;
+      color: #f0cce5;
+    }
+
+    .tiny {
+      margin-top: 40px;
+      color: #7f6d88;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+    }
+
+    /* SEPARADOR */
+
+    .divider {
+      width: 80px;
+      height: 1px;
+      background: rgba(255, 200, 235, 0.35);
+      margin: 30px auto;
+    }
+
+    /* MÓVIL */
+
+    @media (max-width: 600px) {
+
+      section {
+        padding: 75px 17px;
+      }
+
+      .card {
+        padding: 28px 22px;
+      }
+
+      .card p {
+        font-size: 1.15rem;
+      }
+
+      .moon {
+        width: 55px;
+        height: 55px;
+        top: 35px;
+        right: 8%;
+      }
+
+      .moon::after {
+        width: 55px;
+        height: 55px;
+        left: 14px;
+        top: -5px;
+      }
+
+      .hero {
+        min-height: 95vh;
+      }
+
+      .spotify-player iframe {
+        height: 152px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- CORAZONES FLOTANDO -->
+
+  <div class="heart">♡</div>
+  <div class="heart">♥</div>
+  <div class="heart">♡</div>
+  <div class="heart">♥</div>
+  <div class="heart">♡</div>
+
+
+  <!-- PORTADA -->
+
+  <header class="hero">
+
+    <div class="moon"></div>
+
+    <div class="hero-content">
+
+      <div class="small-title">
+        para alguien muy especial
+      </div>
+
+      <h1>Para mi flaco ♡</h1>
+
+      <div class="hero-subtitle">
+        mi amor
+      </div>
+
+      <p class="hero-text">
+        Te quería hacer este presente para demostrarte mi amor
+        y recordarte lo mucho que te amo. 🤍
+      </p>
+
+      <div class="scroll">
+        ↓ baja poquito a poquito ↓
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- NUESTRA HISTORIA -->
+
+  <section>
+
+    <h2 class="section-title">
+      <span>capítulo uno</span>
+      Nuestra historia
+    </h2>
+
+    <div class="card">
+
+      <p>
+        Aún recuerdo ese mensaje en mi celular, o cuando vi tu solicitud
+        en Instagram de <span class="highlight">“el niño que canta JAJA😭”</span>.
+        Recuerdo cuando apenas empezábamos a conocernos, era tan mágico y tan loco,
+        el pensar que éramos dos tontitos literal que no sabíamos cómo actuar
+        uno frente al otro, pero poco a poco se nos fue la pena y conocimos más
+        uno del otro.
+      </p>
+
+      <p style="margin-top: 20px;">
+        Coincidimos en muchas cosas, nos seguimos la corriente en todo,
+        tenemos la misma locura y eso es lo que nos hace especial y únicos.
+        Gracias por ese mensaje, gracias a Dios por ponerte en mi camino.
+        <span class="highlight">Te amo 🤍</span>
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- PRIMER BESO -->
+
+  <section>
+
+    <h2 class="section-title">
+      <span>un recuerdo que nunca olvidaré</span>
+      El primer beso JAJAJA
+    </h2>
+
+    <div class="card">
+
+      <p>
+        Recuerdo nuestro primer beso que de tan nerviosos que estábamos
+        chocamos con la cabeza JAJAJAJ, pero dejando de lado eso,
+        o mejor dicho incluyéndolo también, eso es lo que nos hace
+        quienes somos ahora.
+      </p>
+
+      <p style="margin-top: 20px;">
+        Fue un momento tan único y especial que jamás se me olvidará.
+        Extraño ese rinconcito en el instituto donde siempre íbamos JAKAJ
+        y cómo olvidar cuando nos vio una vez el profe KAKDJSKJ😭🙏🏽.
+      </p>
+
+      <p style="margin-top: 20px;">
+        Te amo tanto mi amor, gracias por tantos recuerdos bonitos
+        a tu lado 🤍
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- FRASE -->
+
+  <div class="quote">
+    “Gracias por tantos recuerdos bonitos a tu lado.” 🤍
+  </div>
+
+
+  <!-- COSAS QUE AMO -->
+
+  <section>
+
+    <h2 class="section-title">
+      <span>literalmente amo todo pero...</span>
+      Cosas que amo de ti
+    </h2>
+
+    <div class="card">
+
+      <p style="text-align:center; margin-bottom:30px;">
+        Amo todo literal pero a ver 😭🤍
+      </p>
+
+      <div class="love-grid">
+
+        <div class="love-item">
+          <div class="love-icon">☺️</div>
+          <p>Amo su sonrisa</p>
+        </div>
+
+        <div class="love-item">
+          <div class="love-icon">👀</div>
+          <p>Amo su forma de verme</p>
+        </div>
+
+        <div class="love-item">
+          <div class="love-icon">😭🤍</div>
+          <p>Amo sus ojitos</p>
+        </div>
+
+        <div class="love-item">
+          <div class="love-icon">🎶</div>
+          <p>Amo su voz</p>
+        </div>
+
+        <div class="love-item">
+          <div class="love-icon">✨</div>
+          <p>Amo que siempre le encuentra el lado positivo a todo</p>
+        </div>
+
+        <div class="love-item">
+          <div class="love-icon">🤍</div>
+          <p>
+            Amo cómo me hace sentir, tan feliz y plenamente llena
+            cuando estoy con él 🤍
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- LA LLUVIA -->
+
+  <section>
+
+    <h2 class="section-title">
+      <span>uno de mis recuerdos favoritos</span>
+      La lluvia 🌧️
+    </h2>
+
+    <div class="card rain-card">
+
+      <p>
+        Ese día estábamos ensayando para desfilar, era como inicios de
+        septiembre y como siempre se vino una lluvia de esas feaaaaas,
+        recuerdo que tenía miedo y ahí estabas tú, me abrazaste y se me
+        olvidó todo.
+      </p>
+
+      <p style="margin-top:20px;">
+        Solo éramos tú y yo y me sentí protegida, así es como me haces
+        sentir cada vez que estoy abrazada a ti mi amor.
+      </p>
+
+      <p style="margin-top:20px;">
+        Y cómo olvidar ese beso mientras todo se caía y soplaba el viento
+        alrededor de nosotros, ese beso fue como un arcoíris en medio
+        de la tormenta 😭🤍
+      </p>
+
+      <p style="margin-top:20px;">
+        Te amo tanto mi amor y como te repito:
+        <span class="highlight">GRACIAS POR TANTOS MOMENTOS😭🤍</span>
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- MÚSICA -->
+
+  <section>
+
+    <h2 class="section-title">
+      <span>y mientras lees esto...</span>
+      Nuestra canción 🎶
+    </h2>
+
+    <div class="card music-box">
+
+      <div class="music-note">
+        Morfina — HUMBE 🤍
+      </div>
+
+      <div class="divider"></div>
+
+      <p>
+        Quería que esta canción te acompañara mientras lees
+        todo esto, porque simplemente tenía que estar aquí. 🥹🤍
+      </p>
+
+      <div class="spotify-player">
+
+        <iframe
+          src="https://open.spotify.com/embed/track/0zLr0KLp3KUKGRBzgsrVK2?utm_source=generator"
+          width="100%"
+          height="152"
+          frameborder="0"
+          allowfullscreen=""
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy">
+        </iframe>
+
+      </div>
+
+      <a
+        class="spotify-button"
+        href="https://open.spotify.com/intl-es/track/0zLr0KLp3KUKGRBzgsrVK2"
+        target="_blank">
+        🎵 Escuchar Morfina en Spotify
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- FELIZ OTRO MES -->
+
+  <section class="month">
+
+    <div class="month-title">
+      Feliz otro mes, mi flaco 🤍
+    </div>
+
+    <div class="divider"></div>
+
+    <p>
+      Gracias por seguir compartiendo conmigo tantos momentos,
+      tantas risas, tantos recuerdos y tanto amor.
+      Espero que sigamos sumando muchos momentos más juntos.
+      Te amo muchísimo, mi amor. 🤍
+    </p>
+
+  </section>
+
+
+  <!-- DIOS Y NOSOTROS -->
+
+  <section>
+
+    <h2 class="section-title">
+      <span>algo que deseo para nosotros</span>
+      Dios y nosotros 🤍
+    </h2>
+
+    <div class="card god-card">
+
+      <div class="cross">
+        ♡
+      </div>
+
+      <p>
+        Espero que Diosito nos acompañe todo el tiempo que estemos juntos,
+        mi amor, que te cuide y que nos dé muchas bendiciones para nuestra
+        relación, mi amor.
+      </p>
+
+      <p style="margin-top:20px;">
+        Que, a pesar de todo, podamos seguir adelante como siempre
+        lo hemos soñado. 🤍
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- CARTA -->
+
+  <section>
+
+    <h2 class="section-title">
+      <span>para ti, con todo mi corazón</span>
+      Una pequeña carta 💌
+    </h2>
+
+    <div class="card letter">
+
+      <p>
+        Amor de mi vida, quería escribirte esta pequeña carta como algo
+        bonito para que lo recuerdes.
+      </p>
+
+      <p>
+        Te amo, y no te amo solamente por tu físico, claro que me encantas
+        físicamente pero mi amor por ti va más allá de lo físico, mi amor
+        por ti es por la gran maravillosa persona que eres mi amor y no
+        solo conmigo, con los demás también.
+      </p>
+
+      <p>
+        Te amo porque vos me enseñaste a ser mejor persona, vos me enseñaste
+        a querer mejorar por los dos, vos me enseñaste lo que es el amor
+        de verdad mi amor y tú eres ese amor que no quiero que se acabe jamás.
+      </p>
+
+      <p>
+        Admiro muchas cosas de ti mi amor, admiro como día con día sales
+        adelante para conseguir lo que quieres, como te esfuerzas por lo
+        que deseas mi amor y eso es de admirar, que, a pesar de todas las
+        circunstancias y dificultades que la vida te pone tú sabes cómo
+        sobrepasar cada una de ellas.
+      </p>
+
+      <p>
+        Jamás quiero que olvides mi amor por ti, que sepas que te amo en
+        esta y en todas las vidas posibles porque sin duda tú eres el amor
+        de mi vida, de mi alma.
+      </p>
+
+      <p>
+        Espero que podamos llegar a viejitos y poder contarle a nuestros
+        hijos todo lo que tuvimos que pasar para llegar a ese punto,
+        quiero construir toda una vida contigo mi amor y no importa todos
+        los obstáculos que nos pongan, contigo siempre será un sí mi amor.
+      </p>
+
+      <p>
+        <span class="highlight">
+          TE AMO MI AMOR ETERNO🤍
+        </span>
+      </p>
+
+      <div class="signature">
+        de tu cachetoncita 🤍
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- MENSAJE SECRETO -->
+
+  <section class="secret-area">
+
+    <h2 class="section-title">
+      <span>pss pss...</span>
+      Hay algo más 👀
+    </h2>
+
+    <button class="secret-button" onclick="mostrarMensaje()">
+      🔐 Presiona aquí
+    </button>
+
+    <div id="secretMessage" class="secret-message">
+
+      <p>
+        Pss pss... si llegaste hasta aquí, solo quería recordarte algo:
+        entre tantas personas en este mundo, qué bonito que Dios haya hecho
+        que tú y yo coincidiéramos.
+      </p>
+
+      <p style="margin-top:20px;">
+        Y si pudiera volver a empezar nuestra historia,
+        te volvería a elegir a ti.
+        <br>
+        <span class="highlight">
+          Siempre a ti. 🤍
+        </span>
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- FINAL -->
+
+  <footer class="final">
+
+    <div class="names">
+      Helen ♡ Pedro
+    </div>
+
+    <div class="forever">
+      Por siempre tuya, ps ps🤍
+    </div>
+
+    <div class="tiny">
+      hecho con mucho amor ♡
+    </div>
+
+  </footer>
+
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    function mostrarMensaje() {
+
+      const mensaje = document.getElementById("secretMessage");
+
+      mensaje.classList.toggle("show");
+
+    }
+
+  </script>
+
+</body>
+</html>
